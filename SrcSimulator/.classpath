@@ -26,5 +26,7 @@
 			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="SrcSimulator/dependencies/opencv/x64"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="dependencies/miglayout-core-4.2.jar"/>
+	<classpathentry kind="lib" path="dependencies/miglayout-swing-4.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
