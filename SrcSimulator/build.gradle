@@ -40,22 +40,12 @@ configurations {
 dependencies {
     
     // Snobot Sim
-    compile    'com.snobot.simulator:snobotSim:0.0'
-    compile    'com.snobot.simulator:snobotSim:0.0:gui'
-    compile    'com.snobot.simulator:snobotSim:0.0:NativeJava-windows'
-    compile    'com.snobot.simulator:snobotSim:0.0:NativeJava-linux'
-    zippedDeps 'com.snobot.simulator:snobotSim:0.0:javadeps@zip'
+    compile    'com.snobot.simulator:snobot_sim_gui:0.1:gui'
+    compile    'com.snobot.simulator:snobot_sim_native:0.1:uber_native-linux'
+    compile    'com.snobot.simulator:snobot_sim_native:0.1:uber_native-windows'
+    zippedDeps 'com.snobot.simulator:snobot_sim_gui:0.1:javadeps@zip'
     
-    // 3rd Party
-    compile 'com.googlecode.json-simple:json-simple:1.1.1'
-    //compile files(System.getProperty("user.home") + "/wpilib/user/java/lib/RIOdroid.jar")
-    compile files(System.getProperty("user.home") + "/wpilib/user/java/lib/CTRLib.jar")
-    compile files(System.getProperty("user.home") + "/wpilib/java/current/lib/cscore.jar")
-
-    // WPI Stuff
     compile fileTree(dir: 'dependencies', include: '*.jar')
-    compile files(System.getProperty("user.home") + "/wpilib/user/java/lib/strongback.jar")
-    compile files(System.getProperty("user.home") + "/wpilib/user/java/lib/navx_frc.jar")
 }
     
 
@@ -64,7 +54,7 @@ configurations.zippedDeps.files.each { file ->
     copy {
         def depName = file.name.substring(0, file.name.indexOf('-'))
         from zipTree(file) 
-        into "dependencies/"
+        into "."
         
         exclude "jinput-platform*.jar"
     }
@@ -75,7 +65,8 @@ configurations.compile.files.each { file ->
     copy {
         from file
         into "dependencies/"
-        include "snobotSim*"
+        include "snobot_sim*"
+        include "ctre_override*"
     }
 }
 
