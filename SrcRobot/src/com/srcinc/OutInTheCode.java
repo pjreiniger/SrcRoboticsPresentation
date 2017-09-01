@@ -1,11 +1,13 @@
 package com.srcinc;
 
+import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.DigitalOutput;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Jaguar;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.PowerDistributionPanel;
+import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.SpeedController;
@@ -53,6 +55,8 @@ public class OutInTheCode extends IterativeRobot
     private PowerDistributionPanel mPDP;
     private Timer mTimer;
 
+    private Relay mRelay;
+
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
@@ -70,8 +74,7 @@ public class OutInTheCode extends IterativeRobot
         mLeftEncoder = new Encoder(1, 2);
 
         // Analog IO
-        // mAnalogGryo = new AnalogGyro(0);
-        // mPotentiometer = new AnalogPotentiometer(1);
+        mAnalogGryo = new AnalogGyro(1);
 
         // Solenoid
         mSolenoid = new Solenoid(0);
@@ -80,12 +83,11 @@ public class OutInTheCode extends IterativeRobot
         mJoystick1 = new Joystick(0);
         mJoystick2 = new XboxController(1);
 
-        // // SPI
-        // mSpiGryo = new ADXRS450_Gyro();
-
         // Utilities
         mTimer = new Timer();
         mPDP = new PowerDistributionPanel();
+
+        mRelay = new Relay(0);
     }
 
     public void autonomousInit()
@@ -130,7 +132,7 @@ public class OutInTheCode extends IterativeRobot
     {
 
         SmartDashboard.putNumber("Motor 1", mRightMotor.get());
-        // SmartDashboard.putNumber("Analog Angle", mAnalogGryo.getAngle());
+        SmartDashboard.putNumber("Analog Angle", mAnalogGryo.getAngle());
     }
 
     /**
