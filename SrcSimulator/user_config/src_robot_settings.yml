@@ -1,0 +1,55 @@
+speed_controllers:
+- name: Right Motor
+  handle: 33554688
+  motor_sim:
+    type: StaticLoad
+    load: 0.6
+    conversion_factor: 2.43
+    motor_model:
+      motor_type: CIM
+      inverted: false
+      has_brake: false
+      transmission:
+        num_motors     : 2
+        gear_reduction : 11.43
+        efficiency     : 1
+- name: Left Motor
+  handle: 33554689
+  motor_sim:
+    type: StaticLoad
+    load: 0.6
+    conversion_factor: 2.43
+    motor_model:
+      motor_type: CIM
+      inverted: false
+      has_brake: false
+      transmission:
+        num_motors     : 2
+        gear_reduction : 11.43
+        efficiency     : 1
+- name: Servo
+  handle: 33554690
+  motor_sim:
+    type: Simple
+    max_speed: 12.0
+quad_encoders:
+- name: Left Encoder
+  single_handle: 33620482
+  speed_controller_handle: 33554689
+- name: Right Encoder
+  single_handle: 33621253
+  speed_controller_handle: 33554688
+solenoids:
+- name: Solenoid 0
+  handle: 33554432
+digital:
+- name: Digital Source0
+  handle: 33554688
+- name: Digital Source1
+  handle: 33554689
+- name: Digital Source2
+  handle: 33554690
+- name: Digital Source4
+  handle: 33554692
+- name: Digital Source5
+  handle: 33554693

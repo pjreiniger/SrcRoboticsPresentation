@@ -3,9 +3,6 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/SrcRobot"/>
-	<classpathentry kind="lib" path="dependencies/snobot_sim_gui-0.1-gui.jar"/>
-	<classpathentry kind="lib" path="dependencies/snobot_sim_native-0.1-uber_native-linux.jar"/>
-	<classpathentry kind="lib" path="dependencies/snobot_sim_native-0.1-uber_native-windows.jar"/>
 	<classpathentry kind="lib" path="dependencies/snakeyaml-1.18.jar"/>
 	<classpathentry kind="lib" path="dependencies/jinput-2.0.7.jar">
 		<attributes>
@@ -21,5 +18,9 @@
 	<classpathentry kind="lib" path="dependencies/opencv-java-3.2.0.jar"/>
 	<classpathentry kind="lib" path="dependencies/wpilibj-java-2017.3.1-20170827052826-87-g67d4da5.jar"/>
 	<classpathentry kind="lib" path="dependencies/wpiutil-java-2.0.0-20170829025423-31-gc3f7c85.jar"/>
+	<classpathentry kind="lib" path="dependencies/snobot_sim_gui-0.1-gui.jar"/>
+	<classpathentry kind="lib" path="dependencies/snobot_sim_gui-0.1-uber_native-linux.jar"/>
+	<classpathentry kind="lib" path="dependencies/snobot_sim_gui-0.1-uber_native-windows.jar"/>
+	<classpathentry kind="lib" path="dependencies/ntcore-jni-4.0.0-alpha-1-20170829034932-12-g12b2efa-windowsx86-64.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -1,7 +1,5 @@
 package com.srcinc;
 
-import edu.wpi.first.wpilibj.AnalogGyro;
-import edu.wpi.first.wpilibj.AnalogPotentiometer;
 import edu.wpi.first.wpilibj.DigitalOutput;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.IterativeRobot;
@@ -25,8 +23,8 @@ public class OutInTheCode extends IterativeRobot
     //////////////////////////////////////
 
     // PWM
-    private SpeedController mTestMotor1;
-    private SpeedController mTestMotor2;
+    private SpeedController mRightMotor;
+    private SpeedController mLeftMotor;
     private Servo mServo;
 
     // Digital IO
@@ -62,8 +60,8 @@ public class OutInTheCode extends IterativeRobot
     public void robotInit()
     {
         // PWM's
-        mTestMotor1 = new Talon(0);
-        mTestMotor2 = new Jaguar(1);
+        mRightMotor = new Talon(0);
+        mLeftMotor = new Jaguar(1);
         mServo = new Servo(2);
 
         // Digital IO
@@ -72,8 +70,8 @@ public class OutInTheCode extends IterativeRobot
         mLeftEncoder = new Encoder(1, 2);
 
         // Analog IO
-        mAnalogGryo = new AnalogGyro(0);
-        mPotentiometer = new AnalogPotentiometer(1);
+        // mAnalogGryo = new AnalogGyro(0);
+        // mPotentiometer = new AnalogPotentiometer(1);
 
         // Solenoid
         mSolenoid = new Solenoid(0);
@@ -118,11 +116,11 @@ public class OutInTheCode extends IterativeRobot
     {
         if (mJoystick1.getRawButton(1))
         {
-            mTestMotor1.set(1);
+            mRightMotor.set(1);
         }
         else
         {
-            mTestMotor1.set(0);
+            mRightMotor.set(0);
         }
 
         updateSmardDashboard();
@@ -131,8 +129,8 @@ public class OutInTheCode extends IterativeRobot
     protected void updateSmardDashboard()
     {
 
-        SmartDashboard.putNumber("Motor 1", mTestMotor1.get());
-        SmartDashboard.putNumber("Analog Angle", mAnalogGryo.getAngle());
+        SmartDashboard.putNumber("Motor 1", mRightMotor.get());
+        // SmartDashboard.putNumber("Analog Angle", mAnalogGryo.getAngle());
     }
 
     /**
